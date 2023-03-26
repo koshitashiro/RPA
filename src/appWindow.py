@@ -1,5 +1,7 @@
 
-class appWindow:
+class WindowInf:
+    
+    
     def __init__(self, hWnd, left, top, width, height, title):
         self.hWnd   = hWnd
         self.left   = left
@@ -21,4 +23,36 @@ class appWindow:
         Lst.append(self.title)
         
         return Lst
+    
+    #カンマで繋がった情報の文字列を取得する
+    def getInfStr(self):
         
+        Str = "hwnd=" + str(self.hWnd) + ", left=" + str(self.left) + ", top=" + str(self.top) + ", width=" + str(self.width) + ", height=" + str(self.height) + ", title=" + self.title
+        return Str
+        
+    
+    def showEnt(self):
+        print("hwnd=" + str(self.hWnd) + ", left=" + str(self.left) + ", top=" + str(self.top) + 
+              ", width=" + str(self.width) + ", height=" + str(self.height) + 
+              ", title=" + self.title)
+        
+        return
+    
+    
+    
+class WindowSet:
+    #Lstは一つしか存在しない　シングルトンクラスの方が良いか？
+    Lst = []
+    
+    def __init__(self, Lst):
+        self.Lst = Lst
+        return
+    
+    def appendLst(self, WindowInf):
+        self.Lst.append(WindowInf)
+        return
+    
+    def shoEnt(self):
+        print(self.Lst)
+        return
+    
