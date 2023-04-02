@@ -1,9 +1,8 @@
-import sys.path_glob as mp
 import pygetwindow as pgw
 import win32gui
-import file.file_act as fa
 from win.window_class import WindowInf
-
+from file import file_act as fa
+from msys import path_glob as pg
 
 def mkInitWindow():
     useLst = []   #使用するアプリ一覧
@@ -48,7 +47,7 @@ def mkPosSize(Rect):
 #使用するアプリのリストを作成する 
 def getUseLst():
     
-    path   = fa.getFullPath(mp.TBL_PATH, fa.USEAPP)
+    path   = fa.getFullPath(pg.TBL_PATH, fa.USEAPP)
     Lst = []
     
     Lst = fa.getLine_Path(path)

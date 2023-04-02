@@ -1,6 +1,3 @@
-#mkInitWindowData --- 2023-03-29 23:14:38.273368
+#WININFO --- 2023-04-02 18:09:55.163800
 #hWnd, left, top, wight, heigth, title
-hwnd=66668, left=-7, top=-7, width=1550, height=830, title=initWindow.txt - RPA - Visual Studio Code
-hwnd=66692, left=-25600, top=-25600, width=159, height=27, title=ようこそ - Visual Studio Code
-hwnd=460600, left=-25600, top=-25600, width=159, height=27, title=タイトルなし - メモ帳
-hwnd=1116338, left=-25600, top=-25600, width=159, height=27, title=タイトルなし - メモ帳
+hwnd=331546, left=-7, top=-7, width=1550, height=830, title=mk_wininfo.py - RPA - Visual Studio Code

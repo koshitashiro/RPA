@@ -1,6 +1,6 @@
 import datetime
-import window_class as wc
-import mngPath as mp
+from win import window_class as wc
+from msys import path_glob as pg
 
 
 USEAPP  = "UseApp.txt"
@@ -41,7 +41,7 @@ def getLine_data(fdata):
 
 #データを書き込む
 def writeWinInfo(Lst):
-    f = open(getFullPath(mp.TBL_PATH, WININFO), "w", encoding="UTF-8")
+    f = open(getFullPath(pg.TBL_PATH, WININFO), "w", encoding="UTF-8")
     
     now = str(datetime.datetime.now())
     f.write("#WININFO --- " + str(now) + "\n")

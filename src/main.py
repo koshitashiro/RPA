@@ -1,9 +1,9 @@
-import mk_wininfo as mw
-import opTkinter as otk
+from win import mk_wininfo  as mw
+from tk  import tkinter_act as tka
 
 def main():
     mw.mkInitWindow()
-    otk.showLst()
+    tka.showLst()
     
 
 if __name__ == '__main__':

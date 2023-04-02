@@ -1,6 +1,6 @@
 import tkinter as tk
-import opFile as opf
-import mngPath as mp
+from file import file_act as fa
+from msys import path_glob as pg
 from   tkinter import ttk
 
 def showLst():
@@ -30,7 +30,7 @@ def showLst():
     tree.heading("height", text="height", anchor="center")
     tree.heading("title",  text="title",  anchor="center")
         
-    Lst = opf.getLine_Path(opf.getFullPath(mp.TBL_PATH, opf.INITWINDOW))
+    Lst = fa.getLine_Path(fa.getFullPath(pg.TBL_PATH, fa.WININFO))
     print(Lst)
     for line in Lst:
         valLst = line.split(",")

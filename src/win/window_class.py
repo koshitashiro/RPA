@@ -37,22 +37,3 @@ class WindowInf:
               ", title=" + self.title)
         
         return
-    
-    
-    
-class WindowSet:
-    #Lstは一つしか存在しない　シングルトンクラスの方が良いか？
-    Lst = []
-    
-    def __init__(self, Lst):
-        self.Lst = Lst
-        return
-    
-    def appendLst(self, WindowInf):
-        self.Lst.append(WindowInf)
-        return
-    
-    def shoEnt(self):
-        print(self.Lst)
-        return
-    
