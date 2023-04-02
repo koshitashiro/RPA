@@ -51,12 +51,7 @@ def getUseLst():
     path   = opf.getFullPath(mp.TBL_PATH, opf.USEAPP)
     Lst = []
     
-    f    = open(path)
-    fdata = f.read()
-    
-    Lst = opf.getLineLst(fdata)
-    
-    f.close()
+    Lst = opf.getLine_Path(path)
     
     
     return Lst

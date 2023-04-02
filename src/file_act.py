@@ -1,17 +1,29 @@
 import datetime
-import appWindow as aw
+import window_class as wc
 import mngPath as mp
 
 
-USEAPP      = "useApp.txt"
-INITWINDOW  = "initWindow.txt"
+USEAPP  = "UseApp.txt"
+WININFO = "WinInfo.txt"
 
 #FullPathを取得する
 def getFullPath(path, fname):
     return path + "\\" + fname
 
-#行ごとのデータを取得する
-def getLineLst(fdata):
+#パスからファイルを開き行ごとのデータを取得する
+def getLine_Path(path):
+    
+    f    = open(path, "r", encoding="UTF-8")
+    fdata = f.read()
+    
+    Lst = getLine_data(fdata)
+    
+    f.close()
+    
+    return Lst
+
+#データから行ごとのデータを取得する
+def getLine_data(fdata):
     
     Lst  = []
     line = ""
@@ -28,18 +40,18 @@ def getLineLst(fdata):
     return Lst
 
 #データを書き込む
-def writeInitWindow(Lst):
-    f = open(getFullPath(mp.TBL_PATH, INITWINDOW), "w", encoding="UTF-8")
+def writeWinInfo(Lst):
+    f = open(getFullPath(mp.TBL_PATH, WININFO), "w", encoding="UTF-8")
     
     now = str(datetime.datetime.now())
-    f.write("#mkInitWindowData --- " + str(now) + "\n")
+    f.write("#WININFO --- " + str(now) + "\n")
     f.write("#hWnd, left, top, wight, heigth, title\n")
     
     for inf in Lst:
-        f.writelines(aw.WindowInf.getInfStr(inf))
+        f.write(wc.WindowInf.getInfStr(inf) + "\n")
     
     f.close
     
     return
-        
+
     

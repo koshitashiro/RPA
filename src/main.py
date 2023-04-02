@@ -1,8 +1,8 @@
-import mkInitWindow as miw
+import mk_wininfo as mw
 import opTkinter as otk
 
 def main():
-    miw.mkInitWindow()
+    mw.mkInitWindow()
     otk.showLst()
     
 
