@@ -24,25 +24,19 @@ def mkWindowInf(mkLst, openLst):
         return
     else:
         for i in range(len(openLst)):
-                
             hwnd  = openLst[i]._hWnd
-            Rect  = win32gui.GetWindowRect(hwnd)
-            left, top, width, height = mkPosSize(Rect)
+            pos   = win32gui.GetWindowRect(hwnd)
+            rect  = mkPosSize(pos)
             title = win32gui.GetWindowText(hwnd)
-            wInf = WindowInf(hwnd, left, top, width, height, title)
+            wInf = WindowInf(title, hwnd, rect)
             mkLst.append(wInf)
                 
     return mkLst
 
-def mkPosSize(Rect):
+def mkPosSize(pos):
     
-    left   = Rect[0]
-    top    = Rect[1]
-    wight  = Rect[2] - Rect[0]   #right - left
-    height = Rect[3] - Rect[1]   #bottom - top
-    
-        
-    return left, top, wight, height
+    return (pos[0], pos[1], pos[2] - pos[0], pos[3] - pos[1])
+
 
 #使用するアプリのリストを作成する 
 def getUseLst():
@@ -50,7 +44,7 @@ def getUseLst():
     path   = fa.getFullPath(pg.TBL_PATH, fa.USEAPP)
     Lst = []
     
-    Lst = fa.getLine_Path(path)
+    Lst = fa.getLineLst_FromPath(path)
     
     
     return Lst

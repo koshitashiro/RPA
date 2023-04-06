@@ -1,39 +1,30 @@
 
 class WindowInf:
     
+    rect = (0, 0, 0, 0)
     
-    def __init__(self, hWnd, left, top, width, height, title):
-        self.hWnd   = hWnd
-        self.left   = left
-        self.top    = top
-        self.width  = width
-        self.height = height
-        self.title  = title
+    def __init__(self, title, hWnd, rect):
+        
+        self.title = title
+        self.hWnd  = hWnd
+        self.rect  = rect 
         
         return
     
     def getInfLst(self):
         Lst = []
         
-        Lst.append(self.hWnd)
-        Lst.append(self.left)
-        Lst.append(self.top)
-        Lst.append(self.width)
-        Lst.append(self.height)
         Lst.append(self.title)
+        Lst.append(self.hWnd)
+        Lst.append(self.rect)    
         
         return Lst
     
     #カンマで繋がった情報の文字列を取得する
     def getInfStr(self):
         
-        Str = "hwnd=" + str(self.hWnd) + ", left=" + str(self.left) + ", top=" + str(self.top) + ", width=" + str(self.width) + ", height=" + str(self.height) + ", title=" + self.title
-        return Str
+        dat = "title=" + str(self.title) + ", hwnd=" + str(self.hWnd) + ", " + self.getRect_Str()
+        return dat
         
-    
-    def showEnt(self):
-        print("hwnd=" + str(self.hWnd) + ", left=" + str(self.left) + ", top=" + str(self.top) + 
-              ", width=" + str(self.width) + ", height=" + str(self.height) + 
-              ", title=" + self.title)
-        
-        return
+    def getRect_Str(self):
+        return "left={}, top={}, width={}, height={}".format(self.rect[0], self.rect[1], self.rect[2], self.rect[3])

@@ -1,3 +1,5 @@
-#WININFO --- 2023-04-02 18:09:55.163800
-#hWnd, left, top, wight, heigth, title
-hwnd=331546, left=-7, top=-7, width=1550, height=830, title=mk_wininfo.py - RPA - Visual Studio Code
+#WININFO --- 2023-04-06 22:38:34.164084
+#title, hWnd, left, top, wight, heigth
+title=tkinter_act.py - RPA - Visual Studio Code, hwnd=262400, left=-7, top=-7, width=1550, height=830
+title=メモ帳, hwnd=132558, left=-25600, top=-25600, width=159, height=27
+title=メモ帳, hwnd=132282, left=-25600, top=-25600, width=159, height=27

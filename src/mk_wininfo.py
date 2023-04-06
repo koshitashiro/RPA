@@ -30,7 +30,7 @@ def mkWindowInf(mkLst, openLst):
             Rect  = win32gui.GetWindowRect(hwnd)
             left, top, width, height = mkPosSize(Rect)
             title = win32gui.GetWindowText(hwnd)
-            wInf = WindowInf(hwnd, left, top, width, height, title)
+            wInf = WindowInf(title, hwnd, left, top, width, height)
             mkLst.append(wInf)
                 
     return mkLst
@@ -51,8 +51,7 @@ def getUseLst():
     path   = fa.getFullPath(mp.TBL_PATH, fa.USEAPP)
     Lst = []
     
-    Lst = fa.getLine_Path(path)
-    
+    Lst = fa.getLineLst_FromPath(path)
     
     return Lst
             
