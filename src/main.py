@@ -1,8 +1,8 @@
-from win import mk_wininfo  as mw
-from tk  import tkinter_act as tka
+from win  import mkwininfo_act  as mwin
+from mytk import tkinter_act as tka
 
 def main():
-    mw.mkInitWindow()
+    mwin.mkWindowInfo()
     tka.showLst()
     
 
