@@ -1,3 +1,4 @@
 Visual Studio
 メモ帳
 Tera Term
+カメラ

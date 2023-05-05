@@ -1,13 +1,15 @@
 #画面をコントロールする
 #winctrl.py
 
-import pyautogui as pgui
-import pywinauto as pwa
+import pyautogui   as pgui
+import pygetwindow as pw
 
-def testpwa():
-    pwa.Application.top_window()
+def testpgui(hwnd, title):
     
-
-
-def testpgui():
+    win = pw.getActiveWindowTitle()
+    print(win)
+    if win is not None:
+        win.activate()
+    
     pgui.click(100, 100)
+    return

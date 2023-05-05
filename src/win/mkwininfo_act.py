@@ -55,5 +55,7 @@ def getUseLst():
     
     
     return Lst
+
+#tupple内の要素をすべてstringに変更する
             
         

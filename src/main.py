@@ -5,9 +5,9 @@ from mytk import tkinter_act as tka
 def main():
     
     
-    #mwin.mkWindowInfo()
-    #tka.showLst()
-    wc.testpwa()
+    mwin.mkWindowInfo()
+    tka.showLst()
+    #wc.testpwa()
     
     
 

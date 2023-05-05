@@ -1,8 +1,17 @@
+#tkinterを操作する
+#tkinter_act.py
+#テーブルを作成し、WinInfo.txtに記載されている画面情報を表示する
+#header["title", "hWnd", "left", "top", "width", "height"]
+#任意の画面情報をクリックすると、クリックイベントが発生する
+
 import tkinter as tk
-from   file    import file_act as fa
+from   win     import winctrl   as wc
+from   file    import file_act  as fa
 from   msys    import path_glob as pg
 from   tksheet import Sheet
 
+
+HeadLst = ["title", "hWnd", "left", "top", "width", "height"]
 
 def showLst():
     
@@ -17,8 +26,11 @@ def showLst():
         if len(cell) == 0:
             return
         
-        print(sheet.data[cell[0]])
-        print(Lst)
+        clmdat = sheet.data[cell[0]] 
+        title  = clmdat[HeadLst.index("title")]
+        hwnd   = int(clmdat[HeadLst.index("hWnd")])
+        
+        wc.testpgui(hwnd, title)
         return
         
         
@@ -31,7 +43,7 @@ def showLst():
     sheet.grid()
     sheet.pack(fill="both", expand=True)
     
-    sheet.headers(newheaders = ["title", "hWnd", "left", "top", "width", "height"] )
+    sheet.headers(newheaders = HeadLst )
     vLst = fa.getLineLst_FromPath(fa.getFullPath(pg.TBL_PATH, fa.WININFO))
     
     for line in vLst:
@@ -82,3 +94,32 @@ def getValLst(srcLst):
 #テーブルの情報を取得する
 def getTblInfo(str):
     return
+
+#クリックイベントからタイトルを取得する
+def get_title(imp):
+    
+    dat = imp
+    # Lst = ["\'", "[", "]"]
+    
+    # for elm in Lst:
+    #     dat.strip(elm)
+    
+    # dLst   = dat.split(",")
+    title = imp[0]
+    
+    return title
+
+#クリックイベントからハンドル情報を取得する
+def get_handle(imp):
+    
+    dat = imp
+    # Lst = ["\'", "[", "]"]
+    
+    # for elm in Lst:
+    #     dat.strip(elm)
+    
+    # dLst   = dat.split(",")
+    hwnd  = imp[1]
+    
+    return hwnd
+
