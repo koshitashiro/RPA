@@ -8,7 +8,8 @@ def showLst():
     
     Lst = []
     
-    
+    #テーブルクリック時のイベント
+    #e:イベント
     def on_cell_click(e):
         
         cell  = sheet.get_currently_selected()
@@ -16,13 +17,13 @@ def showLst():
         if len(cell) == 0:
             return
         
-        print(sheet.data[cell[0][1]])
-        
+        print(sheet.data[cell[0]])
+        print(Lst)
         return
         
         
     
-    # Tkオブジェクトを作成し、ウィンドウを表示する
+    # Tkオブジェクトを作成する
     root  = tk.Tk()
     
     #tksheetを作成
@@ -31,18 +32,21 @@ def showLst():
     sheet.pack(fill="both", expand=True)
     
     sheet.headers(newheaders = ["title", "hWnd", "left", "top", "width", "height"] )
-
-    
     vLst = fa.getLineLst_FromPath(fa.getFullPath(pg.TBL_PATH, fa.WININFO))
     
     for line in vLst:
+        line = line.strip("\n")
         Lst.append(mkClmn(line))
     
+    #シートを作成する
     sheet.set_sheet_data(Lst)
     sheet.set_column_widths([300,100,100,100,100,100])
     sheet.set_all_row_heights(height = 30)
     
+    #バインドを有効化する
     sheet.enable_bindings()
+    
+    #バインドには何種類かある..これがベストだとは思わないが今回はこれで良しとする
     sheet.bind_all("<Button-1>", on_cell_click)
     
 
@@ -50,11 +54,11 @@ def showLst():
     root.mainloop()
         
 
-#行を作成する
+#行データを作成する
 def mkClmn(line):
-        
+    
     csvLst = line.split(",")
-        
+         
     #valの数は
     if len(csvLst) != 6:
         return
@@ -75,26 +79,6 @@ def getValLst(srcLst):
     
     return Lst
 
-#有効範囲を作成する
-#Lst⇒[[テーブルの幅リスト][テ幅ブルの高さリスト]]
-def mkVadRng(Lst):
-    
-    tbl_w = 0
-    tbl_h = 0
-
-    
-    for cmp in Lst[0]:
-        tbl_w = tbl_w + cmp
-        
-    for cmp in Lst[1]:
-        tbl_h = tbl_h + cmp
-        
-        
-    print(F"x={tbl_w}, y={tbl_h}")
-        
-    return (0, 0, tbl_h, tbl_w)
-
-
-def chkValRng(Rect, x, y):
-    
-    return    
+#テーブルの情報を取得する
+def getTblInfo(str):
+    return

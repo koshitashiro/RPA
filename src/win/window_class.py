@@ -1,6 +1,6 @@
 #画面情報クラス
-#title : タイトル  (str title) 
-#hWnd  : ハンドル  (int hWnd) 
+#title : タイトル  (str) 
+#hWnd  : ハンドル  (int) 
 #rest  : 画面位置  (int x,int y, int width, int height)
 
 class WindowInf:
@@ -36,3 +36,7 @@ class WindowInf:
     #(int x,int y, int width, int height)
     def getRect_Str(self):
         return "left={}, top={}, width={}, height={}".format(self.rect[0], self.rect[1], self.rect[2], self.rect[3])
+    
+    #ハンドルを取得する
+    def gethWnd(self):
+        return self.hWnd

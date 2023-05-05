@@ -35,7 +35,7 @@ def mkWindowInf(mkLst, openLst):
             pos   = win32gui.GetWindowRect(hwnd)    #画面ハンドラ
             rect  = mkPosSize(pos)                  #画面ポジション4点
             title = win32gui.GetWindowText(hwnd)    #タイトル
-            wInf = WindowInf(title, hwnd, rect)     #画面情報インスタンスの作成
+            wInf  = WindowInf(title, hwnd, rect)     #画面情報インスタンスの作成
             mkLst.append(wInf)
                 
     return mkLst

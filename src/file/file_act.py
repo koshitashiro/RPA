@@ -14,7 +14,7 @@ def getFullPath(path, fname):
 #パスからファイルを開き、行ごとのデータをリストとして取得する
 def getLineLst_FromPath(path):
     
-    f    = open(path, "r", encoding="UTF-8")
+    f     = open(path, "r", encoding="UTF-8")
     fdata = f.read()
     
     Lst = getLineLst_FromData(fdata)
@@ -60,7 +60,7 @@ def chkRemLine(line):
 #文字列内のスペースを消す
 def remEmpty(line):
     
-    Lst = [" ", "　", "\t"]
+    Lst = [" ", "　", "\t", "\n"]
     
     for emp in Lst:
         line.strip(emp)
