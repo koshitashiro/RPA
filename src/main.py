@@ -1,12 +1,12 @@
-from win  import mkwininfo_act  as mwin
-from win  import winctrl        as wc
-from mytk import tkinter_act as tka
+from win  import mk_wininfo_ini  as mwin
+from win  import winctrl     as wc
+from mytk import show_wininfo as tka
 
 def main():
     
     
     mwin.mkWindowInfo()
-    tka.showLst()
+    tka.showInfoLst()
     #wc.testpwa()
     
     

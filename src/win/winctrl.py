@@ -2,14 +2,31 @@
 #winctrl.py
 
 import pyautogui   as pgui
-import pygetwindow as pw
+import pygetwindow as pgw
+
+pgui.PAUSE = 0.25
 
 def testpgui(hwnd, title):
     
-    win = pw.getActiveWindowTitle()
-    print(win)
-    if win is not None:
-        win.activate()
+    print(F"{hwnd} {title}")
     
-    pgui.click(100, 100)
+    win = pgw.Window(hwnd)
+    
+    #activateのみだと最小化された画面はアクティブにならない
+    #ただし、この操作によって画面サイズが変更される可能性がある
+    win.restore()
+    win.activate()
+    
+    memoCtrl()
+    
+    return
+
+def memoCtrl():
+    pgui.write("memo")
+    pgui.press("enter")
+    
+    pgui.hotkey("ctrl", "shift", "s")
+    pgui.write("test.txt", interval=0.25)
+    pgui.press("enter")
+    
     return

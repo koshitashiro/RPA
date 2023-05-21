@@ -7,7 +7,7 @@ import pygetwindow as pgw
 import win32gui
 from win.window_class import WindowInf
 from file import file_act as fa
-from msys import path_glob as pg
+from mysys import path_glob as pg
 
 
 #画面情報を作成する
@@ -17,25 +17,26 @@ def mkWindowInfo():
     
     useLst = getUseLst()
     
-    for openLst in useLst:
-        openLst = pgw.getWindowsWithTitle(openLst)
-        mkWindowInf(mkLst, openLst)
+    for app in useLst:
+        win = pgw.getWindowsWithTitle(app)
+        mkWindowInf(mkLst, app, win)
     
     fa.writeWinInfo(mkLst)
     return
     
 #ウィンドウ情報を作成する
-def mkWindowInf(mkLst, openLst):
+def mkWindowInf(mkLst, app, win):
     
-    if len(openLst) == 0:
+    if len(app) == 0:
         return
+    
     else:
-        for i in range(len(openLst)):
-            hwnd  = openLst[i]._hWnd                
-            pos   = win32gui.GetWindowRect(hwnd)    #画面ハンドラ
-            rect  = mkPosSize(pos)                  #画面ポジション4点
-            title = win32gui.GetWindowText(hwnd)    #タイトル
-            wInf  = WindowInf(title, hwnd, rect)     #画面情報インスタンスの作成
+        for i in range(len(win)):
+            hwnd  = win[i]._hWnd                
+            pos   = win32gui.GetWindowRect(hwnd)        #画面ハンドラ
+            rect  = mkPosSize(pos)                      #画面ポジション4点
+            title = win32gui.GetWindowText(hwnd)        #タイトル
+            wInf  = WindowInf(app, title, hwnd, rect)   #画面情報インスタンスの作成
             mkLst.append(wInf)
                 
     return mkLst
@@ -56,6 +57,5 @@ def getUseLst():
     
     return Lst
 
-#tupple内の要素をすべてstringに変更する
             
         

@@ -7,8 +7,9 @@ class WindowInf:
     
     rect = (0, 0, 0, 0)
     
-    def __init__(self, title, hWnd, rect):
+    def __init__(self, app, title, hWnd, rect):
         
+        self.app   = app
         self.title = title
         self.hWnd  = hWnd
         self.rect  = rect 
@@ -20,6 +21,7 @@ class WindowInf:
     def getInfLst(self):
         Lst = []
         
+        Lst.append(self.app)
         Lst.append(self.title)
         Lst.append(self.hWnd)
         Lst.append(self.rect)    
@@ -29,7 +31,7 @@ class WindowInf:
     #カンマで繋がった情報の文字列を取得する
     def getInfStr(self):
         
-        dat = "title=" + str(self.title) + ", hwnd=" + str(self.hWnd) + ", " + self.getRect_Str()
+        dat = "app= " + str(self.app) + ", title=" + str(self.title) + ", hwnd=" + str(self.hWnd) + ", " + self.getRect_Str()
         return dat
     
     #画面位置情報のみを取得する
